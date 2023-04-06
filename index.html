@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>WebCat</title>
+ <script src="js/wc-3.0.6.min.js"></script>
+  </head>
+  <style>
+  *{
+    padding:0;
+    margin:0;
+    }
+  body{
+  background-color:lightblue;
+  }
+#str{
+  width:100%;
+  height:200px;
+  background-color:brown;
+  }
+  #dtr{
+    width:100%;
+    height:30px;
+    background-color:lightgreen;
+    margin-top:33.5%;
+    }
+  #leftButton,#rightButton{
+        border-radius:50%;    
+        margin-left:50px;
+    font-size:15px;
+  font-family:Arial;
+  width:140px;
+  height:50px;
+  border-width:1px;
+  color:#fff;
+  border-color:#1f2f47;
+  border-top-left-radius:17px;
+  border-top-right-radius:17px;
+  border-bottom-left-radius:17px;
+  border-bottom-right-radius:17px;
+  box-shadow:inset 0px 0px 15px 3px #23395e;
+  text-shadow:inset 0px 1px 0px #263666;
+  background:linear-gradient(#2e466e, #415989);
+    }
+  #myDiv{
+    margin-top:35%;
+    width:30px;
+    height:30px;
+    background-color:yellow;
+    border:none;
+    border-radius:50%;
+   }
+ #gong,#gongt{
+    
+    border-radius:50%;
+    margin-left:80%;
+font-size:15px;
+  font-family:Arial;
+  width:140px;
+  height:50px;
+  border-width:1px;
+  color:#fff;
+  border-color:#314179;
+  font-weight:bold;
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+  border-bottom-left-radius:0px;
+  border-bottom-right-radius:0px;
+  box-shadow:inset 0px 1px 0px 0px #7a8eb9;
+  background:linear-gradient(#637aad, #5972a7);
+  }
+   #hh{
+    margin-top:20%;
+    color:red;
+    }
+  #stu{
+    border-radius:50%;
+    margin-top:-25.21%;
+    background-color:blue;
+    width:30px;
+    height:30px;
+    border:none;
+    margin-left:50px;
+    animation:ones 50s linear infinite;
+    }
+  @keyframes ones{
+    1%{margin-left:65px;}
+    10%{margin-left:90px;}
+    20%{margin-left:20px;}
+    30%{margin-left:100px;}
+    50%{margin-left:120px;}
+    70%{margin-left:30px;}
+    100%{margin-right:20px;}
+    }
+  
+#gong,#gongt:hover {
+  background: linear-gradient(#5972a7, #637aad);
+}
+#leftButton,#rightButton:hover {
+  background: linear-gradient(#5972a7, #637aad);
+}
+#tiao{
+  border-radius:50%;
+    margin-left:80%;
+font-size:15px;
+  font-family:Arial;
+  width:140px;
+  height:50px;
+  border-width:1px;
+  color:#fff;
+  border-color:#314179;
+  font-weight:bold;
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+  border-bottom-left-radius:0px;
+  border-bottom-right-radius:0px;
+  box-shadow:inset 0px 1px 0px 0px #7a8eb9;
+  background:linear-gradient(#637aad, #5972a7);
+  
+  }
+#stut{
+  border-radius:50%;
+    margin-top:-3%;
+    background-color:green;
+    width:30px;
+    height:30px;
+    border:none;
+    margin-left:50px;
+    animation:oness 8s linear infinite;
+    }
+  @keyframes oness{
+    1%{margin-left:0%;}
+    10%{margin-left:10%}
+    15%{margin-left:20%}
+    30%{margin-left:30%}
+    45%{margin-left:50%}
+    60%{margin-left:65%}
+    70%{margin-left:80%}
+    95%{margin-left:90%}
+    100%{margin-left:95%}
+    }   
+   </style>
+  <body>
+  <center>	
+  <h1 id="s">得分:</h1>
+  </center>
+  <center>
+  <div id="hh"></div>
+  </center>
+   <div id="dtr">
+
+<div id="myDiv"style="position:absolute; left:0px; top:0px;"></div>
+</div>
+	<div id="str">
+ <button id="leftButton">左</button>&nbsp&nbsp&nbsp&nbsp&nbsp
+<button id="rightButton">右</button>
+<button onclick="gong();"id="gong">左攻击</button>
+<button onclick="gongt();"id="gongt">右攻击</button>
+<button onclick="tiao();"id="tiao">跳跃</button>
+ </div>
+ <input id="put"type="hidden"/>
+<script>
+alert("broken小游戏，制作人:星宁,它是一款十分休闲的游戏，每15秒一个怪物，怪物为蓝色，同时也会不定时出现一个绿球，碰到它你可要死翘翘了哦!每10分为满分，之后会继续出游戏，并且还会把这个游戏继续创作，现在开始你的游戏吧!\n补充:html5.css3.javaScript开发此游戏");
+let s = 0;
+var div = document.getElementById("myDiv");
+var moveAmount = 20; 
+document.getElementById("leftButton").addEventListener("click",function() {
+    div.style.left = (parseInt(div.style.left) - moveAmount) + "px";
+var obj1 = document.getElementById("myDiv");
+var obj1Rect = obj1.getBoundingClientRect(); // 获取包围盒信息
+var obj1Left = obj1Rect.left;
+var obj1Top = obj1Rect.top;
+var obj1Width = obj1Rect.width;
+var obj1Height = obj1Rect.height;
+var obj2 = document.getElementById("stu");
+var obj2Rect = obj2.getBoundingClientRect();
+var obj2Left = obj2Rect.left;
+var obj2Top = obj2Rect.top;
+var obj2Width = obj2Rect.width;
+var obj2Height = obj2Rect.height;
+// 判断是否相交
+if (obj1Left < obj2Left + obj2Width &&
+    obj1Left + obj1Width > obj2Left &&
+    obj1Top < obj2Top + obj2Height &&
+    obj1Top + obj1Height > obj2Top) {
+      myDiv.remove();
+      alert("你失败了，重新打开网页再试");
+      }else{
+      
+      }
+}); 
+document.getElementById("rightButton").addEventListener("click",function() {
+    div.style.left = (parseInt(div.style.left) + moveAmount) + "px";
+var obj1 = document.getElementById("myDiv");
+var obj1Rect = obj1.getBoundingClientRect(); // 获取包围盒信息
+var obj1Left = obj1Rect.left;
+var obj1Top = obj1Rect.top;
+var obj1Width = obj1Rect.width;
+var obj1Height = obj1Rect.height;
+var obj2 = document.getElementById("stu");
+var obj2Rect = obj2.getBoundingClientRect();
+var obj2Left = obj2Rect.left;
+var obj2Top = obj2Rect.top;
+var obj2Width = obj2Rect.width;
+var obj2Height = obj2Rect.height;
+// 判断是否相交
+if (obj1Left < obj2Left + obj2Width &&
+    obj1Left + obj1Width > obj2Left &&
+    obj1Top < obj2Top + obj2Height &&
+    obj1Top + obj1Height > obj2Top) {
+      myDiv.remove();
+      alert("你失败了，重新打开网页再试");
+      }else{
+      
+      }
+});
+var div = document.getElementById("myDiv"); 
+    var screenWidth = window.innerWidth;
+    var screenHeight = window.innerHeight; 
+    setInterval(function() {
+      var divRect = div.getBoundingClientRect();       
+      if (divRect.right < 0 || divRect.left > screenWidth || divRect.bottom < 0 || divRect.top > screenHeight) {
+        var stt = window.confirm("你死了");
+        if(stt == false){
+        alert("你失败了，重新打开网页再试");
+        }else{
+        alert("你失败了，重新打开网页再试");
+        }
+      }
+    }, 1000);
+    function gong(){
+var div = document.getElementById("myDiv")
+var lujing = 30;
+div.style.left = (parseInt(div.style.left) - lujing) + "px";
+pass = Math.round(Math.random()*190);
+var obj1 = document.getElementById("myDiv");
+var obj1Rect = obj1.getBoundingClientRect(); // 获取包围盒信息
+var obj1Left = obj1Rect.left;
+var obj1Top = obj1Rect.top;
+var obj1Width = obj1Rect.width;
+var obj1Height = obj1Rect.height;
+var obj2 = document.getElementById("stu");
+var obj2Rect = obj2.getBoundingClientRect();
+var obj2Left = obj2Rect.left;
+var obj2Top = obj2Rect.top;
+var obj2Width = obj2Rect.width;
+var obj2Height = obj2Rect.height;
+// 判断是否相交
+if (obj1Left < obj2Left + obj2Width &&
+    obj1Left + obj1Width > obj2Left &&
+    obj1Top < obj2Top + obj2Height &&
+    obj1Top + obj1Height > obj2Top) {
+      
+      s++
+      document.getElementById("s").innerHTML="得分:"+s
+      if(s == "10"){
+      alert("你成功了");
+      }
+      stu.remove();
+      var diiv = document.getElementById("stut");
+diiv.style.top = "230px"
+} else {
+  
+}
+}
+function gongt(){
+var div = document.getElementById("myDiv")
+var lujing = 31;
+div.style.left = (parseInt(div.style.left) + lujing) + "px";
+pass = Math.round(Math.random()*200);
+var obj1 = document.getElementById("myDiv");
+var obj1Rect = obj1.getBoundingClientRect(); // 获取包围盒信息
+var obj1Left = obj1Rect.left;
+var obj1Top = obj1Rect.top;
+var obj1Width = obj1Rect.width;
+var obj1Height = obj1Rect.height;
+var obj2 = document.getElementById("stu");
+var obj2Rect = obj2.getBoundingClientRect();
+var obj2Left = obj2Rect.left;
+var obj2Top = obj2Rect.top;
+var obj2Width = obj2Rect.width;
+var obj2Height = obj2Rect.height;
+// 判断是否相交
+if (obj1Left < obj2Left + obj2Width &&
+    obj1Left + obj1Width > obj2Left &&
+    obj1Top < obj2Top + obj2Height &&
+    obj1Top + obj1Height > obj2Top) {
+      
+      s++
+      document.getElementById("s").innerHTML="得分:"+s
+      if(s == "10"){
+      alert("你成功了");
+      }
+      stu.remove();
+    var diiv = document.getElementById("stut");
+diiv.style.top = "230px"
+      }else{
+      
+      }
+}
+function sheng(){
+let stu = document.createElement("div");
+stu.setAttribute('id','stu');
+document.body.appendChild(stu)
+}
+var myInterval = setInterval(sheng,15000);
+var moveAmountt = 40;
+function tiao(){
+    let div = document.getElementById("myDiv");
+div.style.top = (parseInt(div.style.top) - moveAmountt) + "px";
+var myIntervall = setInterval(xtiao,300);
+setTimeout(function(){
+clearInterval(myIntervall)
+},300);
+}
+function xtiao(){
+let div = document.getElementById("myDiv");
+div.style.top = (parseInt(div.style.top) + moveAmountt) + "px";
+}
+setInterval(v=>{
+//判断场上怪物如果大于2，就退出游戏
+  if(stu.length>="2"){
+  alert("你失败了，重新打开网页再试");
+  stu.remove();
+  }
+  },1000);
+setInterval(v=>{
+  if(stu.length="0"){
+  let stut = document.createElement("div");
+stut.setAttribute('id','stut');
+document.body.appendChild(stut)
+  
+  }
+  },5000);
+ setInterval(v=>{
+var obj1 = document.getElementById("myDiv");
+var obj1Rect = obj1.getBoundingClientRect(); // 获取包围盒信息
+var obj1Left = obj1Rect.left;
+var obj1Top = obj1Rect.top;
+var obj1Width = obj1Rect.width;
+var obj1Height = obj1Rect.height;
+var obj2 = document.getElementById("stut");
+var obj2Rect = obj2.getBoundingClientRect();
+var obj2Left = obj2Rect.left;
+var obj2Top = obj2Rect.top;
+var obj2Width = obj2Rect.width;
+var obj2Height = obj2Rect.height;
+// 判断是否相交
+if (obj1Left < obj2Left + obj2Width &&
+    obj1Left + obj1Width > obj2Left &&
+    obj1Top < obj2Top + obj2Height &&
+    obj1Top + obj1Height > obj2Top) {
+            myDiv.remove();
+            alert("你失败了，重新打开网页再试");
+       }else{
+      
+      }
+},100);
+setInterval(v=>{
+if(stu.length >= "1"){
+  stut.remove();
+  }else{
+  stut.remove();
+  }
+
+},8000);
+setInterval(v=>{
+  var bit = [
+  "你好",
+  "我不好"
+  ]
+  
+
+			
+		var randomIndex = Math.floor(Math.random() * bit.length);
+			var randomElement = bit[randomIndex];
+			document.getElementById("put").value = randomElement;
+   
+if(put.value =="你好"){
+var onediv = document.getElementById("myDiv");
+
+}
+  },3000);
+
+</script>
+  </body>
+</html>  
+ 
